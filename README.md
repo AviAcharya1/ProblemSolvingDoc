@@ -9,7 +9,7 @@ This project provides a comprehensive overview of various problem-solving techni
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#MITlicense)
+- [License](#license)
 
 ## Introduction
 
