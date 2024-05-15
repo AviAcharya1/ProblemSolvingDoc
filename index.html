@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=10">
+    <title>Problem-Solving</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <section class="container">
+        <div class="cards">
+            <div>
+                <h1>Introduction to Problem-Solving</h1>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Understanding the problem statement</h2>
+                    <div class="content">
+                        <li><strong>Definition:</strong> The ability to comprehend the given problem statement
+                            accurately, identifying the key requirements, constraints, and expected outcomes.</li>
+                        <li><strong>Example:</strong> In a problem that asks to find the maximum sum of a subarray in an
+                            array of integers, understanding the problem statement involves recognizing that the input
+                            is an array of numbers, and the output should be the maximum sum of a contiguous subarray
+                            within that array.</li>
+                        <li><strong>Real-time use case:</strong> Accurately understanding problem statements is crucial
+                            in software development, where requirements gathering and comprehension are essential for
+                            delivering the right solution.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Identifying the input and output formats</h2>
+                    <div class="content">
+                        <li>Definition: Recognizing the specific formats in which the input data will be provided and
+                            the expected format of the output or result.</li>
+                        <li>Example: In the problem mentioned above, the input format is an array of integers, and the
+                            output format is a single integer representing the maximum subarray sum.</li>
+                        <li>Real-time use case: Correctly identifying input and output formats is essential in data
+                            processing applications, where data can be received and transmitted in various formats
+                            (e.g., JSON, XML, CSV).</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Identifying edge cases and constraints</h2>
+                    <div class="content">
+                        <li>Definition: Identifying the boundary conditions, special cases, or constraints that the
+                            solution must handle or consider.</li>
+                        <li>Example: In the maximum subarray sum problem, edge cases could include an empty array or an
+                            array with all negative numbers, where the maximum sum would be the largest negative number.
+                        </li>
+                        <li>Real-time use case: Identifying edge cases is crucial in software development to ensure the
+                            robustness and reliability of the solution, especially in safety-critical systems or
+                            applications with strict requirements.</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div>
+                <h1>Brute Force Approach</h1>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Definition</h2>
+                    <div class="content">
+                        <li><strong>Definition:</strong>A brute force approach involves exhaustively checking all
+                            possible solutions to a problem until the desired solution is found or all possibilities are
+                            exhausted.</li>
+                        <li><strong>Example:</strong>To find the maximum sum subarray in an array, a brute force
+                            approach would involve calculating the sum of all possible subarray and keeping track of the
+                            maximum sum.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">When to use brute force</h2>
+                    <div class="content">
+                        <li>When the problem size is small, and the brute force approach is reasonably efficient.</li>
+                        <li>When you need a simple and straightforward solution to understand the problem better or
+                            verify the correctness of other approaches.</li>
+                        <li>When other more efficient algorithms are not known or too complex to implement for the given
+                            problem.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Time and space complexity analysis</h2>
+                    <div class="content">
+                        <li>Brute force algorithms often have exponential or factorial time complexity, making them
+                            inefficient for large problem sizes.</li>
+                        <li>Space complexity can vary depending on the problem, but brute force approaches generally
+                            require less auxiliary space compared to other techniques.</li>
+                        <ul><strong>Examples:</strong>
+                            <li> Linear search: Finding an element in an unsorted array by checking each element
+                                sequentially.</li>
+                            <li>Finding all subsets: Generating all possible subsets of a given set.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Real-time use cases</h2>
+                    <div class="content">
+                        <li><strong>Password cracking:</strong> Brute force attacks involve trying all possible
+                            combinations of characters to guess a password.</li>
+                        <li><strong>Cryptography:</strong> Brute force attacks are sometimes used to break weak
+                            encryption algorithms by trying all possible keys.</li>
+                        <li><strong>Constraint satisfaction problems:</strong> Brute force approaches can be used to
+                            solve small instances of constraint satisfaction problems, such as sudoku puzzles or
+                            n-queens problems.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Advantages</h2>
+                    <div class="content">
+                        <li>Simple to understand and implement.</li>
+                        <li>Guaranteed to find the solution, if one exists, for problems with a finite number of
+                            possibilities.</li>
+                        <li>Can be used as a baseline to compare the performance of other algorithms.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Disadvantages</h2>
+                    <div class="content">
+                        <li>Inefficient for large problem sizes due to exponential or factorial time complexity.</li>
+                        <li>Can be computationally expensive and take an unreasonable amount of time or resources for
+                            even moderately-sized problems.</li>
+                        <li>Not scalable for real-world problems with large input sizes or complex constraints.</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div>
+                <h1>Divide and Conquer</h1>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Definition</h2>
+                    <div class="content">
+                        <li><strong>Definition:</strong>A problem-solving paradigm that involves breaking a complex problem into smaller subproblem, solving each subproblem independently, and then combining the solutions to solve the original problem.</li>
+                        <li><strong>Example:</strong> In the merge sort algorithm, the array is recursively divided into halves until individual elements are reached. These elements are then merged back in sorted order to obtain the final sorted array.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">When to use divide and conquer</h2>
+                    <div class="content">
+                        <li>When the problem can be broken down into smaller subproblems that are similar to the original problem but smaller in size.</li>
+                        <li>When the subproblems can be solved independently and their solutions can be combined to solve the original problem.</li>
+                        <li>When the time complexity of the divide and conquer approach is better than the brute force approach.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Time and space complexity analysis:</h2>
+                    <div class="content">
+                        <li>The time complexity of divide and conquer algorithms is often expressed using recurrence relations, and it can vary based on the problem and implementation.</li>
+                        <li>Space complexity can be higher due to the recursive nature of the approach, as it requires additional memory for function calls and data structures used in the recursive calls.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Examples</h2>
+                    <div class="content">
+                        <li><strong></strong>Merge sort: A sorting algorithm that divides the array into halves, sorts them recursively, and then merges the sorted halves.</li>
+                        <li><strong></strong>Quick sort: Another sorting algorithm that partitions the array around a pivot element and recursively sorts the partitions.<li>
+                        <li><strong></strong>Binary search: A search algorithm that recursively divides the search space in half until the target element is found or the search space is exhausted.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Real-time use cases</h2>
+                    <div class="content">
+                        <li><strong></strong>Parallel processing: Divide and conquer algorithms can be parallelized, making them suitable for tasks that can be distributed across multiple processors or cores.</li>
+                        <li><strong></strong>Computational geometry: Algorithms for problems like closest pair of points, convex hull, and line segment intersection often use divide and conquer techniques.<li>
+                        <li><strong></strong>Computer graphics: Rendering and ray tracing algorithms can use divide and conquer approaches to split the scene into smaller parts and render them independently.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Advantages</h2>
+                    <div class="content">
+                        <li>Can lead to efficient algorithms with better time complexities compared to brute force approaches.</li>
+                        <li>Allows for parallel processing and distributed computing, which can significantly improve performance for large problem sizes.</li>
+                        <li>Provides a structured approach to solving complex problems by breaking them down into smaller subproblems</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Disadvantages</h2>
+                    <div class="content">
+                        <li>Increased space complexity due to the recursive nature and additional memory requirements for function calls and data structures.</li>
+                        <li>The overhead of dividing the problem and combining the solutions can be significant for small problem sizes, making the approach less efficient than simpler algorithms.</li>
+                        <li>Implementing divide and conquer algorithms can be more complex than other techniques, especially when dealing with non-trivial problems or edge cases</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div>
+                <h1>Greedy Approach</h1>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Definition</h2>
+                    <div class="content">
+                        <li><strong></strong>Definition: A greedy algorithm is a problem-solving approach that makes locally optimal choices at each step, with the hope of finding a global optimum solution.</li>
+                        <li><strong></strong>Example: In the activity selection problem, where you need to select the maximum number of non-conflicting activities given their start and end times, a greedy approach would be to always choose the activity that ends first.
+                        <li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">When to use greedy algorithms:</h2>
+                    <div class="content">
+                        <li>When the problem has an optimal substructure, meaning that the optimal solution can be constructed from optimal solutions to its subproblems.</li>
+                        <li>When it is possible to make a locally optimal choice at each step that leads to a globally optimal solution.</li>
+                        <li>When the problem exhibits a greedy property, where making the locally optimal choice at each step does not prevent finding the global optimum.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Time and space complexity analysis</h2>
+                    <div class="content">
+                        <li>Greedy algorithms typically have time complexities ranging from O(n) to O(n log n), where n is the size of the input, making them efficient for many problems.</li>
+                        <li>Space complexity is often modest, as greedy algorithms generally don't require extensive additional data structures or recursive function calls.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Examples</h2>
+                    <div class="content">
+                        <li><strong></strong>Kruskal's algorithm: A greedy algorithm used to find the minimum spanning tree of a weighted undirected graph.</li>
+                        <li><strong></strong>Prim's algorithm: Another greedy algorithm for finding the minimum spanning tree of a weighted undirected graph.
+                        <li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Kruskal's algorithm for finding the minimum spanning tree</h2>
+                    <div class="content">
+                        <li><strong></strong>Given a weighted, undirected graph, the algorithm finds the minimum spanning tree (MST), which is a subset of edges that connect all vertices with the minimum total weight.<li>
+                        <li><strong></strong>The greedy choice is to always select the edge with the smallest weight that does not form a cycle with the edges already included in the MST.</li>
+                        <li><strong></strong>This greedy choice works because the MST always consists of the (n-1) lightest edges that don't form a cycle, where n is the number of vertices.</li>
+                        </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Prim's algorithm for finding the minimum spanning tree</h2>
+                    <div class="content">
+                        <li>Another algorithm for finding the MST, but it grows the MST from a single vertex by adding the lightest edge that connects a vertex in the MST to a vertex not in the MST.</li>
+                        <li>The greedy choice is to always select the lightest edge that connects a vertex in the MST to a vertex not in the MST.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Huffman coding for lossless data compression</h2>
+                    <div class="content">
+                        <li>The algorithm constructs an optimal prefix code by building a binary tree from the characters based on their frequencies.</li>
+                        <li>The greedy choice is to always combine the two smallest frequency characters or subtrees to create a new subtree.</li>
+                        <li>This greedy choice works because the optimal prefix code has the property that no code is a prefix of any other code, and characters with lower frequencies should have longer codes.</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div>
+                <h1>Dynamic Programming</h1>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Definition</h2>
+                    <div class="content">
+                        <li><strong></strong>Definition: Dynamic Programming (DP) is a technique for solving complex problems by breaking them down into smaller overlapping subproblems, solving each subproblem once, and storing their solutions for future use, rather than recomputing them.</li>
+                        <li><strong></strong>The core idea is to avoid redundant calculations by remembering the results of subproblems and reusing them when needed.<li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">When to use dynamic programming</h2>
+                    <div class="content">
+                        <li>When the problem exhibits overlapping subproblems, where the same subproblems are solved multiple times in different iterations.</li>
+                        <li>When the problem has an optimal substructure, meaning that the optimal solution can be constructed from optimal solutions to its subproblems.</li>
+                        <li>When the problem can be solved recursively but has exponential time complexity due to redundant calculations.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Memoization and tabulation techniques</h2>
+                    <div class="content">
+                        <li>Memoization is a top-down approach where the solutions to subproblems are stored in a lookup table (usually a hash table or a map) as they are computed. This avoids redundant computations by retrieving the previously computed values from the lookup table.</li>
+                        <li>Tabulation is a bottom-up approach where a table (usually an array or a matrix) is used to build up solutions to subproblems in a specific order, reusing previously computed solutions to larger subproblems</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Time and space complexity analysis</h2>
+                    <div class="content">
+                        <li><strong></strong>Dynamic Programming algorithms typically have time complexities ranging from O(n) to O(n^2), where n is the size of the input, making them efficient for many problems.</li>
+                        <li><strong></strong>Space complexity can be higher due to the need for additional data structures (e.g., arrays, matrices, or hash tables) to store the solutions to subproblems  <li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Examples</h2>
+                    <div class="content">
+                        <li><strong></strong>Fibonacci series: Computing the nth Fibonacci number using dynamic programming to avoid redundant calculations.</li>
+                        <li><strong></strong>Knapsack problem: Determining the maximum value that can be obtained by filling a knapsack with items of different weights and values.<li>
+                        <li><strong></strong>Longest common subsequence: Finding the longest sequence that is a subsequence of two given sequences.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Real-time use cases</h2>
+                    <div class="content">
+                        <li>Optimization problems in routing, scheduling, and resource allocation.</li>
+                        <li>Sequence alignment in bioinformatics, such as DNA sequence analysis.</li>
+                        <li>Image processing and computer vision algorithms, like image segmentation and object recognition.</li>
+                        <li>Machine learning and natural language processing tasks, like speech recognition and machine translation.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Advantages</h2>
+                    <div class="content">
+                        <li>Avoids redundant calculations, leading to significant time savings for problems with overlapping subproblems.</li>
+                        <li>Can solve problems with exponential time complexity efficiently by breaking them down into smaller subproblems.</li>
+                        <li>Provides a structured approach to solving complex problems by breaking them down into smaller subproblems.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Disadvantages</h2>
+                    <div class="content">
+                        <li>Increased space complexity due to the need for additional data structures to store solutions to subproblems.</li>
+                        <li>Can be challenging to identify the optimal substructure and overlapping subproblems for a given problem.</li>
+                        <li>Implementing dynamic programming solutions can be more complex than other techniques, especially when dealing with non-trivial problems or edge cases.</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div>
+                <h1>Recursion and Backtracking</h1>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Definition</h2>
+                    <div class="content">
+                        <li><strong></strong>Definition: Recursion is a programming technique where a function calls itself with a smaller or simpler input until a base case (termination condition) is reached.</li>
+                        <li><strong></strong>In recursion, a complex problem is broken down into smaller instances of the same problem, and the solution to the original problem is obtained by combining the solutions to the smaller instances.<li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">When to use recursion</h2>
+                    <div class="content">
+                        <li>When the problem can be broken down into smaller instances of the same problem.</li>
+                        <li>When the problem can be expressed in terms of itself with a base case or termination condition.</li>
+                        <li>When the solution can be built from solutions to smaller subproblems.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Backtracking technique</h2>
+                    <div class="content">
+                        <li>Backtracking is a general algorithmic technique that considers searching every possible combination in order to solve a computational problem.</li>
+                        <li>It involves incrementally building candidates to the solutions and abandoning a candidate ("backtracking") as soon as it determines that the candidate cannot possibly be completed to a valid solution.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Time and space complexity analysis</h2>
+                    <div class="content">
+                        <li><strong></strong>The time complexity of recursive algorithms depends on the number of recursive calls and the work done in each call. It can range from linear to exponential, depending on the problem.</li>
+                        <li><strong></strong>Space complexity can be high due to the recursive nature and the additional memory required for storing function call stacks and data structures used in the recursive calls.<li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Example</h2>
+                    <div class="content">
+                        <li><strong></strong>N-queens problem: Placing N queens on an N×N chessboard such that no two queens attack each other.</li>
+                        <li><strong></strong>Sudoku solver: Finding a solution to a partially filled Sudoku puzzle.<li>
+                        <li><strong></strong>Permutations: Generating all possible permutations of a given set or string.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Real-time use cases</h2>
+                    <div class="content">
+                        <li>Recursive algorithms are used in file system operations, like navigating directories and traversing trees or graphs.</li>
+                        <li>Compilers and interpreters use recursive descent parsing to build abstract syntax trees.</li>
+                        <li>Backtracking algorithms are used in constraint satisfaction problems, like scheduling, timetabling, and resource allocation.</li>
+                        <li>Artificial intelligence and machine learning algorithms, like game-playing and decision tree construction, often employ backtracking techniques.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Advantages</h2>
+                    <div class="content">
+                        <li>Provides a natural and elegant way to express and solve problems that can be broken down into smaller instances of themselves.</li>
+                        <li>Can lead to concise and readable code when the problem can be expressed recursively.</li>
+                        <li>Backtracking allows for exploring all possible solutions and finding the optimal solution, if one exists.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Disadvantages</h2>
+                    <div class="content">
+                        <li>Recursive algorithms can have high space complexity due to the additional memory required for function call stacks and data structures.</li>
+                        <li>Excessive recursion can lead to stack overflow errors if the call stack becomes too large.</li>
+                        <li>Recursive solutions can be less efficient than iterative solutions for some problems, especially those with large input sizes or high overhead for function calls.</li>
+                        <li>Implementing backtracking algorithms can be complex, especially when dealing with non-trivial problems or optimizations.</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div>
+                <h1>Bit Manipulation</h1>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Definition</h2>
+                    <div class="content">
+                        <li><strong></strong>Definition: Bit manipulation refers to the techniques and operations that directly manipulate the bits of data stored in computer memory.</li>
+                        <li><strong></strong>It involves using bitwise operators and bit shifting operations to perform operations on individual bits or groups of bits within a binary representation of data.
+                        <li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Bitwise operators</h2>
+                    <div class="content">
+                        <li>AND (&): Performs a logical AND operation on each pair of corresponding bits.</li>
+                        <li>OR (|): Performs a logical OR operation on each pair of corresponding bits.</li>
+                        <li>XOR (^): Performs a logical XOR operation on each pair of corresponding bits.</li>
+                        <li>NOT (~): Performs a bitwise complement by flipping all the bits.</li>
+                        <li>Left shift (<<): Shifts the bits of the left operand to the left by the number of positions specified by the right operand.</li>
+                        <li>Right shift (>>): Shifts the bits of the left operand to the right by the number of positions specified by the right operand.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Time and space complexity analysis</h2>
+                    <div class="content">
+                        <li>Bit manipulation operations typically have constant time complexity, as they operate on fixed-size integers or data types.</li>
+                        <li>Space complexity is usually constant, as no additional data structures are required for bit manipulation operations.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Examples</h2>
+                    <div class="content">
+                        <li><strong></strong>Counting set bits: Counting the number of set bits (1s) in the binary representation of a given integer.</li>
+                        <li><strong></strong>Finding missing number: Given an array of integers from 1 to n with one number missing, find the missing number using bitwise operations.<li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Real-time use cases</h2>
+                    <div class="content">
+                        <li><strong></strong>Bit manipulation is used in compression and encoding algorithms, like Huffman coding and arithmetic coding.</li>
+                        <li><strong></strong>It is employed in low-level system programming, such as memory management, file operations, and hardware interfacing.<li>
+                        <li><strong></strong>Cryptographic algorithms and hash functions often involve bit manipulation operations.</li>
+                        <li><strong></strong>Image processing and computer graphics algorithms may use bit manipulations for efficient data representation and operations</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Advantages</h2>
+                    <div class="content">
+                        <li>Bit manipulation operations are typically very efficient and have constant time complexity.</li>
+                        <li>They allow for compact and memory-efficient representations of data by packing information into individual bits.</li>
+                        <li>Bit manipulation can lead to performance improvements in low-level systems programming and algorithms that operate on binary data.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Disadvantages</h2>
+                    <div class="content">
+                        <li>Bit manipulation can be more complex and error-prone compared to higher-level operations, as it requires a deep understanding of binary representations and bitwise operations.</li>
+                        <li>Code involving bit manipulation can be less readable and harder to maintain, especially for developers unfamiliar with the technique.</li>
+                        <li>Not all programming languages provide direct support for bitwise operations, which may require implementing them manually or using third-party libraries.</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div>
+                <h1>Sliding Window Technique</h1>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Definition</h2>
+                    <div class="content">
+                        <li><strong></strong>Definition: The sliding window technique is a way of efficiently processing or deriving certain properties from a data structure (e.g., an array or string) by maintaining a window of elements that slides over the data structure.</li>
+                        <li><strong></strong>The idea is to maintain a window (subarray or substring) of a specific size and update it by removing elements from one end and adding elements from the other end, effectively "sliding" the window along the data structure.<li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">When to use sliding window</h2>
+                    <div class="content">
+                        <li>When you need to find a contiguous subarray or substring that satisfies a specific condition or optimization criteria.</li>
+                        <li>When the problem involves finding a maximum, minimum, or any other property within a range of elements in an array or string.</li>
+                        <li>When the problem requires processing overlapping subarrays or substrings of a specific size.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Time and space complexity analysis</h2>
+                    <div class="content">
+                        <li>The time complexity of sliding window algorithms is typically O(n), where n is the size of the input data structure, as each element is processed at most twice (once when added to the window and once when removed from the window).</li>
+                        <li>Space complexity is usually constant or proportional to the size of the window, as it typically requires only a few additional variables to maintain the window and track the desired properties.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Examples</h2>
+                    <div class="content">
+                        <li><strong></strong>Finding the maximum sum subarray of a given size: Given an array and a window size, find the subarray with the maximum sum within that window size.</li>
+                        <li><strong></strong>Minimum window substring: Given two strings, find the smallest substring of the first string that contains all characters of the second string.<li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Real-time use cases</h2>
+                    <div class="content">
+                        <li>Data streaming applications, where large amounts of data need to be processed in real-time, and only a fixed-size window of data is relevant at any given time.</li>
+                        <li>Network traffic monitoring, where sliding windows can be used to analyze network packets or traffic patterns over a specific time interval.</li>
+                        <li>Video streaming and multimedia applications, where sliding windows can be used for buffering and processing video frames or audio data.</li>
+                        <li>String processing and pattern matching algorithms, where sliding windows can be used to efficiently search for patterns or substrings within larger strings.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Advantages</h2>
+                    <div class="content">
+                        <li>Efficient for problems that involve finding properties or patterns within a specific range or window of elements.</li>
+                        <li>Can lead to optimal time complexity solutions for certain problems.</li>
+                        <li>Reduces the need for nested loops and can be more memory-efficient than other techniques for processing overlapping subarrays or substrings.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Disadvantages</h2>
+                    <div class="content">
+                        <li>Not applicable to all types of problems, as it requires the problem to have a specific window or range-based condition.</li>
+                        <li>Implementing sliding window solutions can be more complex than other techniques, especially when dealing with non-trivial problems or edge cases.</li>
+                        <li>The technique may not be suitable for problems where the window size is not fixed or cannot be determined in advance.</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div>
+                <h1>Two Pointers Technique</h1>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Definition</h2>
+                    <div class="content">
+                        <li><strong></strong>Definition: The two pointers technique involves using two pointers (indices) to traverse a data structure, such as an array or a linked list, in a specific manner to solve a problem.</li>
+                        <li><strong></strong>The pointers are initialized to different positions within the data structure, and they are moved according to specific rules or conditions to achieve the desired result.<li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">When to use two pointers</h2>
+                    <div class="content">
+                        <li>When the problem involves processing pairs of elements or finding a relationship between elements within a data structure.</li>
+                        <li>When the problem requires finding a specific pattern or condition within a sorted or partially sorted data structure.</li>
+                        <li>When the problem involves reversing or reordering elements within a data structure.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Time and space complexity analysis</h2>
+                    <div class="content">
+                        <li>The time complexity of two pointers algorithms is typically O(n), where n is the size of the input data structure, as the pointers generally traverse the data structure once or a few times.</li>
+                        <li>Space complexity is usually constant or proportional to the size of any auxiliary data structures used, as the two pointers technique typically does not require significant additional memory.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Examples</h2>
+                    <div class="content">
+                        <li><strong></strong>Reversing a linked list: Using two pointers to reverse the order of nodes in a singly linked list.</li>
+                        <li><strong></strong>Removing duplicates from a sorted array: Using two pointers to iterate through the array and remove duplicate elements while maintaining the relative order of the remaining elements.<li>
+                        <li><strong></strong>Finding the pair of elements in a sorted array that sum up to a target value</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Real-time use cases</h2>
+                    <div class="content">
+                        <li><strong></strong>String processing and manipulation algorithms, where two pointers can be used to traverse and manipulate characters within a string.</li>
+                        <li><strong></strong>Array processing and manipulation algorithms, where two pointers can be used to rearrange elements, find patterns, or perform operations on specific ranges of elements.<li>
+                        <li><strong></strong>Linked list operations, such as reversing, merging, or partitioning linked lists, can be efficiently implemented using the two pointers technique.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Advantages</h2>
+                    <div class="content">
+                        <li>Efficient for problems that involve processing or manipulating pairs of elements within a data structure.</li>
+                        <li>Can lead to optimal time complexity solutions for certain problems.</li>
+                        <li>Generally requires less additional memory compared to techniques that involve creating auxiliary data structures.</li>
+                        <li>Can be used in conjunction with other techniques, such as sliding window or divide and conquer, to solve more complex problems.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Disadvantages</h2>
+                    <div class="content">
+                        <li>Not applicable to all types of problems, as it requires the problem to involve processing pairs of elements or finding specific patterns within a data structure.</li>
+                        <li>Implementing two pointers solutions can be more complex than other techniques, especially when dealing with non-trivial problems or edge cases.</li>
+                        <li>The technique may not be suitable for problems where the data structure is not sequential or cannot be easily traversed using pointers.</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div>
+                <h1>Practice and Problem-Solving Strategies</h1>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Applying problem-solving techniques to real-world problems</h2>
+                    <div class="content">
+                        <li><strong></strong>Real-world problems often involve a combination of different problem-solving techniques and data structures.</li>
+                        <li><strong></strong>It is essential to analyze the problem, identify the core requirements, and apply the appropriate techniques accordingly.<li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Identifying the appropriate technique for a given problem:</h2>
+                    <div class="content">
+                        <li>Understand the problem statement thoroughly and identify the key characteristics of the problem.</li>
+                        <li>Recognize patterns or properties that may suggest the use of specific techniques, such as recursion, dynamic programming, or greedy approaches.</li>
+                        <li>Consider the time and space complexity requirements and choose a technique that provides an optimal or acceptable solution.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Techniques for breaking down complex problems</h2>
+                    <div class="content">
+                        <li>Analyze the time and space complexity of your solution using appropriate notation (e.g., Big O notation) and compare it with alternative solutions or known optimal algorithms.</li>
+                        <li>Identify bottlenecks or inefficient parts of your solution and explore optimization techniques or alternative approaches.</li>
+                        <li>Consider trade-offs between time and space complexity, as well as other factors like readability, maintainability, and ease of implementation.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Advantages</h2>
+                    <div class="content">
+                        <li>Develops critical thinking and analytical skills essential for software development and problem-solving in general.</li>
+                        <li>Improves problem decomposition and algorithm design abilities.<li>
+                        <li>Enhances understanding of time and space complexity, enabling the creation of efficient and scalable solutions.</li>
+                        <li>Exposes you to a wide range of problems and techniques, expanding your problem-solving toolbox.</li>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 onclick="toggleContent(this)">Disadvantages</h2>
+                    <div class="content">
+                        <li>Requires consistent practice and dedication to master problem-solving skills.</li>
+                        <li>Some problems may have non-intuitive or complex solutions, leading to frustration and discouragement if not approached properly.<li>
+                        <li>Focusing too much on specific problem-solving techniques or algorithms may lead to a narrow perspective and difficulty adapting to new problems or domains</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./script.js"></script>
+</body>
+</html>
